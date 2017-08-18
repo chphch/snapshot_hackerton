@@ -22,11 +22,11 @@ class MainController < ApplicationController
     return image.text
   end
 
+
   def search
     image = params[:image]
     # Do something with image
-
-    text = ocr(image)
+#    text = ocr(image)
     #keys = getKeys(text)
     @keys = "852459"
     @results = findItems(@keys)
