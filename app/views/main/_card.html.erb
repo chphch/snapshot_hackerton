@@ -1,12 +1,25 @@
+<%
+if defined?(:item)
+  result["title"] = item.title
+  result["price"] = item.price
+  result["date"] = item.date
+  result["link"] = item.url
+  result["image"] = item.image
+  result["mallName"] = item.shopping_mall
+end
+%>
+
 <article class="media box d-flex align-items-center hover-fade">
-  <figure class="media-left" onclick="window.open('<%= result["link"] %>')">
-    <p class="image clickable">
+  <figure class="media-left clickable" onclick="window.open('<%= result["link"] %>')">
     <% if(result["image"]) %>
-    <%= image_tag result["image"], class: "card-image image is-128x128" %>
-  <% else %>
-      No image
+      <p class="image">
+      <%= image_tag result["image"], class: "card-image image is-128x128" %>
+      </p>
+    <% else %>
+      <div class="d-flex justify-content-center align-items-center" style="width:128px; height:128px">
+        <i class="fa fa-picture-o" aria-hidden="true"></i>
+      </div>
     <% end %>
-    </p>
   </figure>
   <div class="media-content" onclick="window.open('<%= result["link"] %>')">
     <div class="content clickable">
@@ -20,10 +33,10 @@
     </div>
   </div>
   <div class="media-right">
-      <%= link_to '/mypage/toggle_like', remote: true do %>
-        <div class="card-checkbox-box" data-index="<%= result["productId"]%>">
-          <%= image_tag 'check.png', class: "check" %>
-        </div>
-      <% end %>
+    <%= link_to '/mypage/toggle_like', remote: true do %>
+      <div class="card-checkbox-box" data-index="<%= result["productId"]%>">
+        <%= image_tag 'check.png', class: "check" %>
+      </div>
+    <% end %>
   </div>
 </article>
