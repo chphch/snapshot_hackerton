@@ -1,0 +1,9 @@
+var checkbox = $('.card-checkbox-box').filter(function() {
+  return $(this).data('index') == <%= @like_index %>;
+});
+var check = checkbox.find('.check')
+  <% if @like_true %>
+    check.show();
+<% else %>
+    check.hide();
+<% end %>
