@@ -27,9 +27,11 @@ class MainController < ApplicationController
     # Do something with image
 
     text = ocr(image)
-    keys = getKeys(text)
-    @result = findItems(keys)
+    #keys = getKeys(text)
+    @keys = "852459"
+    @results = findItems(@keys)
   end
+
 
   def getKeys(text)
       #topten10
@@ -46,6 +48,7 @@ class MainController < ApplicationController
     elsif not /\d{6}( |-)\d{3}/.match(text).nil?
       keys = /\d{6}( |-)\d{3}/.match(text)[0]
     end
+
   end
 
   def findItems(keys)
