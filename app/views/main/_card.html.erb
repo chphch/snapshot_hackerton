@@ -1,7 +1,7 @@
 <article class="media box d-flex align-items-center hover-fade">
-  <figure class="media-left" onclick="window.open('https://www.naver.com')">
+  <figure class="media-left" onclick="window.open('<%= result["link"] %>')">
     <p class="image clickable">
-    <%= image_tag "pikapika.jpeg", class: "card-image image is-128x128" %>
+    <%= image_tag result["image"], class: "card-image image is-128x128" %>
     </p>
   </figure>
   <div class="media-content" onclick="window.open('<%= result["link"] %>')">
@@ -10,7 +10,7 @@
       <span class="title is-5"><%= result["title"] %></span><br/>
       <span class="subtitle is-6"><%= result["mallName"] %></span><br/>
       </p>
-      <span class="tag is-success is-medium"><%= result["lprice"] %>원</span>
+      <span class="tag is-success is-medium"><%= result["price"] %>원</span>
       <br/>
       <small>2017.07.03</small>
     </div>
