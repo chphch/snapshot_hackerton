@@ -27,29 +27,24 @@ class MainController < ApplicationController
     # Do something with image
 
     text = ocr(image)
-    keys = getKeys(text)
-    @result = findItems(keys)
+    #keys = getKeys(text)
+    @keys = "852459"
+    @results = findItems(@keys)
   end
-
 
   def ocr(image)
     # 경완
     # return string
   end
 
-
-
-
   def getKeys(text)
       #array
-
-
   end
 
   def findItems(keys)
 
     # 경완 채민
-    uri = URI.parse("https://openapi.naver.com/v1/search/shop.json?query=852459&display=10&start=1&sort=sim")
+    uri = URI.parse("https://openapi.naver.com/v1/search/shop.json?query=#{keys}&display=10&start=1&sort=sim")
     request = Net::HTTP::Get.new(uri)
     request["X-Naver-Client-Id"] = "FfNTPfd3q0P2hp7qfAoW"
     request["X-Naver-Client-Secret"] = "WzmJjLASgI"
