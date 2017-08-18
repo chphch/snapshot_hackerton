@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get 'main/index'
   get 'main/search'
-  get 'card/index'
   get 'mypage/index'
 
   devise_for :users
