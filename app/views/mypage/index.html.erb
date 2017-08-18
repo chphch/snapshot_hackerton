@@ -1,5 +1,30 @@
-<h1>요기는 마이 페이지얌</h1>
-<%=link_to "로그아웃", destroy_user_session_path, :method => :delete %>
-<% @likes.each do |like| %>
-  <%=render partial: "main/card", locals: {item: like}%>
-<% end %>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        My Page
+      </h1>
+      <h2 class="subtitle">
+        마이페이지에서는 찜한 상품을 볼 수 있습니다.
+      </h2>
+    </div>
+  </div>
+</section>
+<div style="overflow:auto">
+  <p class="pull-left" style="margin:10px">
+  <%=current_user.email%>님 환영합니다!
+  </p>
+  <p class="pull-right" style="margin:10px">
+  <%=link_to "로그아웃", destroy_user_session_path, :method => :delete %>
+  </p>
+</div>
+<div>
+  <% if @likes.count == 0 %>
+    <div class="notification" style="margin:50px">
+      찜한 상품이 없습니다.
+    </div>
+  <% end %>
+  <% @likes.each do |like| %>
+    <%=render partial: "main/card", locals: {item: like}%>
+  <% end %>
+</div>
