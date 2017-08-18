@@ -9,12 +9,12 @@
       <p>
       제목: <%= result["title"] %><br/>
       쇼핑몰 이름: <%= result["mallName"] %><br/>
-      가격: <%= result["lprice"] %>원<br/>
+      가격: <%= result["lprice"] || result["price"] %>원<br/>
       </p>
     </div>
   </div>
   <div class="media-right">
-      <%= link_to '/mypage/toggle_like', remote: true do %>
+    <%= link_to "/mypage/toggle_like/#{result["productId"]}", remote: true do %>
         <div class="card-checkbox-box" data-index="<%= result["productId"]%>">
           <%= image_tag 'check.png', class: "check" %>
         </div>

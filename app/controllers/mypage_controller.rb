@@ -1,5 +1,4 @@
 class MypageController < ApplicationController
-  before_action :authenticate_user!
   def index
     @likes = current_user.likes.all
   end
@@ -11,9 +10,11 @@ class MypageController < ApplicationController
   end
 
   def toggle_like
+    puts "TOGGLE LIKE"
+    puts params[:productId]
     if true
       @like_true = false
-      @like_index = 3
+      @like_index = 11879922068
       render '/main/toggle_like'
     else
       render '/main/goto_login_page'

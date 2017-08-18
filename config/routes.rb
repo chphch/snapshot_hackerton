@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'card/index'
   get 'mypage/index'
 
-  get 'mypage/toggle_like'
+  get 'mypage/toggle_like/:productId' => 'mypage#toggle_like'
 
   # 임시
   post 'main/put_image'
