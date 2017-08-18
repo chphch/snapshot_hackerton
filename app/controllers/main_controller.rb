@@ -3,5 +3,7 @@ class MainController < ApplicationController
   end
 
   def search
+    image = params[:image]
+    # Do something with image
   end
 end
