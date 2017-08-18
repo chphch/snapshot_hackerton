@@ -1,11 +1,25 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#search {
-  font-size: 8em;
+#main-nav {
+  margin: 2vw;
+  float: right;
 }
 
-#search:hover {
+#main-nav a {
+  color: #000;
+}
+
+#search {
+  font-size: 30vw;
+  cursor: pointer;
+}
+
+#mypage {
+  font-size: 5vw;
+}
+
+.hover-fade:hover {
   opacity: 0.5;
   transition: opacity .3s ease-out;
   -moz-transition: opacity .3s ease-out;
