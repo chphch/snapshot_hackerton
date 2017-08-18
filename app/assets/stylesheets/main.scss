@@ -35,6 +35,22 @@
   -o-transition: opacity .3s ease-out;
 }
 
+.likeButton {
+  background:none;
+  border:none;
+}
+
+.likeButton.on {
+    i {
+      color: red;
+    }
+}
+
+.likeButton:focus {
+  outline: 0;
+}
+
+
 /*
 .card-container {
   border: 1px solid black;

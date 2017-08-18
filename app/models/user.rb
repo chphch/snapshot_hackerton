@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :likes
+
+  def liked(url)
+    return self.likes.exists?(url: url)
+  end
 end

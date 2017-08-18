@@ -11,6 +11,18 @@ class MypageController < ApplicationController
   end
 
   def toggle_like
+    @data_id = params[:index]
+
+    like = Like.new
+    like.title = params[:title]
+    like.price = params[:price]
+    like.url = params[:link]
+    like.image = params[:image]
+    like.shopping_mall = params[:mallName]
+    like.user_id = current_user.id
+    like.save
+
+=begin
     if true
       @like_true = false
       @like_index = 3
@@ -18,5 +30,6 @@ class MypageController < ApplicationController
     else
       render '/main/goto_login_page'
     end
+=end
   end
 end

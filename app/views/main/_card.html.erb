@@ -1,5 +1,6 @@
 <%
 if defined? item
+  result = Hash.new
   result["title"] = item.title
   result["price"] = item.price
   result["date"] = item.date
@@ -33,10 +34,16 @@ end
     </div>
   </div>
   <div class="media-right">
-    <%= link_to '/mypage/toggle_like', remote: true do %>
-      <div class="card-checkbox-box" data-index="<%= result["productId"]%>">
-        <%= image_tag 'check.png', class: "check" %>
-      </div>
+    <%= form_tag '/mypage/toggle_like', remote: true do %>
+      <input type="hidden" name="title" value=<%=result["title"]%>>
+      <input type="hidden" name="price" value=<%=result["price"]%>>
+      <input type="hidden" name="link" value=<%=result["link"]%>>
+      <input type="hidden" name="image" value=<%=result["image"]%>>
+      <input type="hidden" name="mallName" value=<%=result["mallName"]%>>
+      <input type="hidden" name="index" value="<%=result["link"].gsub(/[^0-9A-Za-z]/, '')%>">
+      <button type="submit" class="likeButton<%=" on" if(current_user.liked(result["link"])) %>" data-id="<%=result["link"].gsub(/[^0-9A-Za-z]/, '')%>">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+      </button>
     <% end %>
   </div>
 </article>
