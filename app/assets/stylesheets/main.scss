@@ -1,6 +1,11 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  box-sizing: border-box;
+}
+
 #main-nav {
   margin: 2vw;
   float: right;
@@ -12,11 +17,14 @@
 
 #search {
   font-size: 30vw;
-  cursor: pointer;
 }
 
 #mypage {
   font-size: 5vw;
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 .hover-fade:hover {
@@ -27,6 +35,7 @@
   -o-transition: opacity .3s ease-out;
 }
 
+/*
 .card-container {
   border: 1px solid black;
   border-radius: 1rem;
@@ -40,5 +49,15 @@
 .card-content {
   width: 100%;
   font-color: black;
-  font-size: 1rem;
+}
+*/
+.card-checkbox-box {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid black;
+  border-radius: 20%;
+}
+.check {
+  width: 90%;
+  height: 90%;
 }

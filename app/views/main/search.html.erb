@@ -1,9 +1,18 @@
+<section class="hero is-light" style="margin-bottom: 1.5rem">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        검색 결과
+      </h1>
+      <h2 class="subtitle">
+        ~~로 검색한 결과입니다.
+      </h2>
+    </div>
+  </div>
+</section>
+
 <div class="container">
   <% for i in 1..10 %>
-    <div class="row">
-      <%= render 'card' %>
-      <div class="col-1 card-container">
-      </div>
-    </div>
+    <%= render partial: 'card', locals: {count: i} %>
   <% end %>
 </div>

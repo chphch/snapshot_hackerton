@@ -1,9 +1,24 @@
-<div class="col-3 card-container">
-  <%= image_tag "pikapika.jpeg", class: "card-image" %>
-</div>
-<%= link_to "https://www.naver.com", class: "col-6 card-container card-content" do %>
-    <p>제목: 재성형은피카츄보다귀여웡뿌잉뿌잉[반값]</p>
-    <p>쇼핑몰 이름: 싸게싸게더싸게옥션</p>
-    <p>가격: 1000원</p>
-    <p>등록일: 2017.07.03</p>
-<% end %>
+<article class="media box d-flex align-items-center hover-fade">
+  <figure class="media-left" onclick="window.open('https://www.naver.com')">
+    <p class="image clickable">
+    <%= image_tag "pikapika.jpeg", class: "card-image image is-128x128" %>
+    </p>
+  </figure>
+  <div class="media-content" onclick="window.open('https://www.naver.com')">
+    <div class="content clickable">
+      <p>
+      제목: 재성형은피카츄보다귀여웡뿌잉뿌잉[반값]<br/>
+      쇼핑몰 이름: 싸게싸게더싸게옥션<br/>
+      가격: 1000원<br/>
+      등록일: 2017.07.03<br/>
+      </p>
+    </div>
+  </div>
+  <div class="media-right">
+      <%= link_to '/mypage/toggle_like', remote: true do %>
+        <div class="card-checkbox-box" data-index="<%=count%>">
+          <%= image_tag 'check.png', class: "check" %>
+        </div>
+      <% end %>
+  </div>
+</article>

@@ -9,4 +9,14 @@ class MypageController < ApplicationController
       redirect_to new_user_session_url
     end
   end
+
+  def toggle_like
+    if true
+      @like_true = false
+      @like_index = 3
+      render '/main/toggle_like'
+    else
+      render '/main/goto_login_page'
+    end
+  end
 end
