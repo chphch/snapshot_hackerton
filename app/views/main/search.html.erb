@@ -12,6 +12,11 @@
 </section>
 
 <div class="container">
+  <% if @results.count == 0 %>
+    <div class="notification" style="margin:50px">
+      검색 결과가 없습니다.
+    </div>
+  <% end %>
   <% @results.each do |result| %>
     <%= render partial: 'card', locals: {result: result} %>
   <% end %>
