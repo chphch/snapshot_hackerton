@@ -67,7 +67,6 @@ class MainController < ApplicationController
     # return an array of results
     # puts response_result
     search_result = JSON.parse(response_result)
-    puts search_result["items"]
     return search_result["items"]
 
     # puts items"items"
