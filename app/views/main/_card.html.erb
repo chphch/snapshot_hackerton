@@ -1,22 +1,27 @@
 <article class="media box d-flex align-items-center hover-fade">
-  <figure class="media-left" onclick="window.open('https://www.naver.com')">
+  <figure class="media-left" onclick="window.open('<%= result["link"] %>')">
     <p class="image clickable">
-    <%= image_tag "pikapika.jpeg", class: "card-image image is-128x128" %>
+    <% if(result["image"]) %>
+    <%= image_tag result["image"], class: "card-image image is-128x128" %>
+  <% else %>
+      No image
+    <% end %>
     </p>
   </figure>
-  <div class="media-content" onclick="window.open('https://www.naver.com')">
+  <div class="media-content" onclick="window.open('<%= result["link"] %>')">
     <div class="content clickable">
       <p>
-      제목: 재성형은피카츄보다귀여웡뿌잉뿌잉[반값]<br/>
-      쇼핑몰 이름: 싸게싸게더싸게옥션<br/>
-      가격: 1000원<br/>
-      등록일: 2017.07.03<br/>
+      <span class="title is-5"><%= result["title"] %></span><br/>
+      <span class="subtitle is-6"><%= result["mallName"] %></span><br/>
       </p>
+      <span class="tag is-success is-medium"><%= result["price"] %>원</span>
+      <br/>
+      <small>2017.07.03</small>
     </div>
   </div>
   <div class="media-right">
       <%= link_to '/mypage/toggle_like', remote: true do %>
-        <div class="card-checkbox-box" data-index="<%=count%>">
+        <div class="card-checkbox-box" data-index="<%= result["productId"]%>">
           <%= image_tag 'check.png', class: "check" %>
         </div>
       <% end %>

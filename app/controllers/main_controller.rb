@@ -4,11 +4,13 @@ require 'nokogiri'
 require 'json'
 require 'google/cloud/vision'
 require 'googleauth'
-
+require 'nokogiri'
+require 'open-uri'
 
 class MainController < ApplicationController
   def index
   end
+
 
   def ocr(file)
     path = file.path
@@ -22,14 +24,16 @@ class MainController < ApplicationController
     return image.text
   end
 
+
   def search
     image = params[:image]
     # Do something with image
-
-    text = ocr(image)
-    keys = getKeys(text)
-    @result = findItems(keys)
+#    text = ocr(image)
+    #keys = getKeys(text)
+    @keys = "852459"
+    @results = findItems(@keys)
   end
+
 
   def getKeys(text)
       #topten10
@@ -46,12 +50,22 @@ class MainController < ApplicationController
     elsif not /\d{6}( |-)\d{3}/.match(text).nil?
       keys = /\d{6}( |-)\d{3}/.match(text)[0]
     end
+
   end
 
-  def findItems(keys)
+  def findItems(key)
+=begin
+각 함수는 Hash로 구성된 Array를 리턴해야 합니다.
+각 Hash는 :title, :link, :mallName, :price를 갖습니다.
+=end
+    result = searchNaver(key)
+    result = result + searchAuction(key)
+    result = result.sort_by { |h| h["price"] }
+    return result
+  end
 
-    # 경완 채민
-    uri = URI.parse("https://openapi.naver.com/v1/search/shop.json?query=#{keys}&display=10&start=1&sort=sim")
+  def searchNaver(key)
+    uri = URI.parse("https://openapi.naver.com/v1/search/shop.json?query=#{key}&display=10&start=1&sort=sim")
     request = Net::HTTP::Get.new(uri)
     request["X-Naver-Client-Id"] = "FfNTPfd3q0P2hp7qfAoW"
     request["X-Naver-Client-Secret"] = "WzmJjLASgI"
@@ -63,15 +77,29 @@ class MainController < ApplicationController
     response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
       http.request(request)
     end
-    response_result = response.body
-    # return an array of results
-    # puts response_result
+    response_result = ActionController::Base.helpers.strip_tags(response.body)
+    response_result.gsub! '"lprice"', '"price"'
     search_result = JSON.parse(response_result)
     return search_result["items"]
+  end
 
-    # puts items"items"
-    # procuct_title = items[:title]
-    # puts procuct_title
+
+  def searchAuction(key)
+    url = "http://search.auction.co.kr/search/search.aspx?keyword=#{key}&itemno=&nickname=&frm=hometab&dom=auction&isSuggestion=No&retry=&Fwk=#{key}&acode=SRP_SU_0100&arraycategory=&encKeyword=#{key}"
+    doc = Nokogiri::HTML(open(url))
+
+    itemArray = Array.new
+    list_view = doc.css(".list_view")
+    list_view.each do |x|
+      item = Hash.new
+      item["image"] = x['src']
+      item["title"]=x.css('.item_title').text
+      item["price"]=x.css('.item_price strong').text
+      item["mallName"] = "옥션"
+
+      itemArray.push(item)
+    end
+    return itemArray
   end
 
 end
