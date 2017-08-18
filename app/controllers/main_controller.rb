@@ -4,11 +4,13 @@ require 'nokogiri'
 require 'json'
 require 'google/cloud/vision'
 require 'googleauth'
-
+require 'nokogiri'
+require 'open-uri'
 
 class MainController < ApplicationController
   def index
   end
+
 
   def ocr(file)
     path = file.path
@@ -57,7 +59,7 @@ class MainController < ApplicationController
 각 Hash는 :title, :link, :mallName, :price를 갖습니다.
 =end
     result = searchNaver(key)
-    #result = result + searchAuction(key)
+    result = result + searchAuction(key)
     result = result.sort_by { |h| h["price"] }
     return result
   end
@@ -82,8 +84,23 @@ class MainController < ApplicationController
     return search_result["items"]
   end
 
-  def searchAuction(key)
 
+  def searchAuction(key)
+    url = "http://search.auction.co.kr/search/search.aspx?keyword=#{key}&itemno=&nickname=&frm=hometab&dom=auction&isSuggestion=No&retry=&Fwk=#{key}&acode=SRP_SU_0100&arraycategory=&encKeyword=#{key}"
+    doc = Nokogiri::HTML(open(url))
+
+    itemArray = Array.new
+    list_view = doc.css(".list_view")
+    list_view.each do |x|
+      item = Hash.new
+      item["image"] = x['src']
+      item["title"]=x.css('.item_title').text
+      item["price"]=x.css('.item_price strong').text
+      item["mallName"] = "옥션"
+
+      itemArray.push(item)
+    end
+    return itemArray
   end
 
 end
