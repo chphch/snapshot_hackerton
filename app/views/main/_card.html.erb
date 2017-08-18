@@ -16,7 +16,7 @@
   </div>
   <div class="media-right">
       <%= link_to '/mypage/toggle_like', remote: true do %>
-        <div class="card-checkbox-box" data-index="1">
+        <div class="card-checkbox-box" data-index="<%=count%>">
           <%= image_tag 'check.png', class: "check" %>
         </div>
       <% end %>
