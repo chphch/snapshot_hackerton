@@ -88,7 +88,6 @@ class MainController < ApplicationController
     response_result = ActionController::Base.helpers.strip_tags(response.body)
     response_result.gsub! '"lprice"', '"price"'
     search_result = JSON.parse(response_result)
-    puts search_result["items"]
     return search_result["items"]
   end
 
