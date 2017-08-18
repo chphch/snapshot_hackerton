@@ -2,6 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+* {
+  box-sizing: border-box;
+}
+
+#main-nav {
+  margin: 2vw;
+  float: right;
+}
+
+#main-nav a {
+  color: #000;
+}
+
+#search {
+  font-size: 30vw;
+}
+
+#mypage {
+  font-size: 5vw;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.hover-fade:hover {
+  opacity: 0.5;
+  transition: opacity .3s ease-out;
+  -moz-transition: opacity .3s ease-out;
+  -webkit-transition: opacity .3s ease-out;
+  -o-transition: opacity .3s ease-out;
+}
+
+/*
 .card-container {
   border: 1px solid black;
   border-radius: 1rem;
@@ -16,6 +50,7 @@
   width: 100%;
   font-color: black;
 }
+*/
 .card-checkbox-box {
   width: 2rem;
   height: 2rem;

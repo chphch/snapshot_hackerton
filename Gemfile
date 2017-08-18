@@ -8,7 +8,8 @@ end
 ######### CUSTOMIZED GEM ##############
 
 gem 'devise'
-
+gem 'google-cloud-vision'
+gem 'googleauth'
 ######################################
 
 
