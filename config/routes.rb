@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'main#index'
 
   get 'main/index'
-  get 'main/search'
+  post 'main/search'
   get 'card/index'
   get 'mypage/index'
 
