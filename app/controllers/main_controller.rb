@@ -32,13 +32,23 @@ class MainController < ApplicationController
     @results = findItems(@keys)
   end
 
-  def ocr(image)
-    # 경완
-    # return string
-  end
 
   def getKeys(text)
-      #array
+      #topten10
+    keys = ""
+    if not /([A-Z]){3}\d([A-Z]){2}\d{4}/.match(text).nil?
+      keys = /([A-Z]){3}\d([A-Z]){2}\d{4}/.match(text)[0]
+      #유니클로
+    elsif not /\d{3}-\d{6}/.match(text).nil?
+      keys = /\d{3}-\d{6}/.match(text)[0]
+      #아디다스
+    elsif not /\b[(A-Z)][A-Z|\d]\d{4}\b/.match(text).nil?
+      keys = /\b[(A-Z)][A-Z|\d]\d{4}\b/.match(text)[0]
+      #나이키
+    elsif not /\d{6}( |-)\d{3}/.match(text).nil?
+      keys = /\d{6}( |-)\d{3}/.match(text)[0]
+    end
+
   end
 
   def findItems(key)
@@ -68,6 +78,7 @@ class MainController < ApplicationController
     response_result = ActionController::Base.helpers.strip_tags(response.body)
     response_result.gsub! '"lprice"', '"price"'
     search_result = JSON.parse(response_result)
+    puts search_result["items"]
     return search_result["items"]
   end
 
