@@ -28,9 +28,9 @@ class MainController < ApplicationController
   def search
     image = params[:image]
     # Do something with image
-#    text = ocr(image)
-    #keys = getKeys(text)
-    @keys = "852459"
+    text = ocr(image)
+    @keys = getKeys(text)
+   # @keys = "852459"
     @results = findItems(@keys)
   end
 
@@ -58,9 +58,17 @@ class MainController < ApplicationController
 각 함수는 Hash로 구성된 Array를 리턴해야 합니다.
 각 Hash는 :title, :link, :mallName, :price를 갖습니다.
 =end
-    result = searchNaver(key)
-    result = result + searchAuction(key)
+    result = Array.new
+    naver = searchNaver(key)
+    auction = searchAuction(key)
+    if naver
+      result = result + naver
+    end
+    if auction
+      result = result + auction
+    end
     result = result.sort_by { |h| h["price"] }
+
     return result
   end
 
