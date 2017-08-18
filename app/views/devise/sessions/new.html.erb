@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center align-items-center" style="height:100vh">
+  <div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <p class="control has-icons-left">
+        <%= f.email_field :email, autofocus: true, class: 'input', placeholder: '이메일' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
+        </p>
+      </div>
+
+      <div class="field">
+        <p class="control has-icons-left">
+        <%= f.password_field :password, autocomplete: "off", class: 'input', placeholder: '비밀번호' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+        </p>
+      </div>
+
+      <div class="text-center">
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :자동_로그인 %>
+          </div>
+        <% end -%>
+
+        <div class="field">
+          <p>
+          <%= f.submit "로그인", class: 'button is-success' %>
+          </p>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+      </div>
