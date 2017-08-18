@@ -30,7 +30,7 @@ class MainController < ApplicationController
     # Do something with image
     text = ocr(image)
     @keys = getKeys(text)
-   # @keys = "852459"
+    #@keys = "852459"
     @results = findItems(@keys)
   end
 
@@ -101,9 +101,10 @@ class MainController < ApplicationController
     list_view.each do |x|
       item = Hash.new
       item["image"] = x['src']
-      item["title"]=x.css('.item_title').text
-      item["price"]=x.css('.item_price strong').text
+      item["title"] = x.css('.item_title').text
+      item["price"] = x.css('.item_price strong').text
       item["mallName"] = "옥션"
+      item["link"] = x.css(".image").css("a")[0]["href"]
 
       itemArray.push(item)
     end
