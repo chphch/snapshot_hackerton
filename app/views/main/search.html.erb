@@ -5,14 +5,14 @@
         검색 결과
       </h1>
       <h2 class="subtitle">
-        ~~로 검색한 결과입니다.
+        <%= @keys %>로 검색한 결과입니다.
       </h2>
     </div>
   </div>
 </section>
 
 <div class="container">
-  <% for i in 1..10 %>
-    <%= render partial: 'card', locals: {count: i} %>
+  <% @results.each do |result| %>
+    <%= render partial: 'card', locals: {result: result} %>
   <% end %>
 </div>

@@ -4,20 +4,20 @@
     <%= image_tag "pikapika.jpeg", class: "card-image image is-128x128" %>
     </p>
   </figure>
-  <div class="media-content" onclick="window.open('https://www.naver.com')">
+  <div class="media-content" onclick="window.open('<%= result["link"] %>')">
     <div class="content clickable">
       <p>
-      <span class="title is-5">재성형은피카츄보다귀여웡뿌잉뿌잉[반값]</span><br/>
-      <span class="subtitle is-6">싸게싸게더싸게옥션</span><br/>
+      <span class="title is-5"><%= result["title"] %></span><br/>
+      <span class="subtitle is-6"><%= result["mallName"] %></span><br/>
       </p>
-      <span class="tag is-success is-medium">1000원</span>
+      <span class="tag is-success is-medium"><%= result["lprice"] %>원</span>
       <br/>
       <small>2017.07.03</small>
     </div>
   </div>
   <div class="media-right">
       <%= link_to '/mypage/toggle_like', remote: true do %>
-        <div class="card-checkbox-box" data-index="<%=count%>">
+        <div class="card-checkbox-box" data-index="<%= result["productId"]%>">
           <%= image_tag 'check.png', class: "check" %>
         </div>
       <% end %>
