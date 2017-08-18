@@ -1,4 +1,5 @@
 <h1>요기는 마이 페이지얌</h1>
+<%=link_to "로그아웃", destroy_user_session_path, :method => :delete %>
 <% @likes.each do |like| %>
   <%=render partial: "main/card", locals: {item: like}%>
 <% end %>
