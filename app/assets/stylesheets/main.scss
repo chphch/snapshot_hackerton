@@ -26,3 +26,19 @@
   -webkit-transition: opacity .3s ease-out;
   -o-transition: opacity .3s ease-out;
 }
+
+.card-container {
+  border: 1px solid black;
+  border-radius: 1rem;
+  margin: 1rem;
+  height: 15rem;
+}
+.card-image {
+  width: 100%;
+  height: auto;
+}
+.card-content {
+  width: 100%;
+  font-color: black;
+  font-size: 1rem;
+}
