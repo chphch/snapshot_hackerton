@@ -1,1 +1,4 @@
-Hi!
+<h1>요기는 마이 페이지얌</h1>
+<% @likes.each do |like| %>
+  <%=render partial: "main/card", locals: {item: like}%>
+<% end %>
