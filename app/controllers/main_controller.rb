@@ -18,13 +18,18 @@ class MainController < ApplicationController
 
   end
 
-  def put_image
-    file_data = params[:file]
-    @result = ocr(file_data.path)                                                                                         
+  def put_image(image)
+   # file_data = params[:file]
+   # @result = ocr(file_data.path)                                                                                         
   end
+
+
 
   def search
     image = params[:image]
     # Do something with image
+   # put_image(image)
+   @result = ocr(image.path)
+   render "put_image"
   end
 end
