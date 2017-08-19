@@ -1,5 +1,6 @@
 class MypageController < ApplicationController
   before_action :authenticate_user!
+
   def index
     @likes = current_user.likes.all
   end
@@ -12,24 +13,21 @@ class MypageController < ApplicationController
 
   def toggle_like
     @data_id = params[:index]
+    url = params[:link]
 
-    like = Like.new
-    like.title = params[:title]
-    like.price = params[:price]
-    like.url = params[:link]
-    like.image = params[:image]
-    like.shopping_mall = params[:mallName]
-    like.user_id = current_user.id
-    like.save
+    like = Like.where(url: url).take
 
-=begin
-    if true
-      @like_true = false
-      @like_index = 3
-      render '/main/toggle_like'
+    if like
+      like.destroy
     else
-      render '/main/goto_login_page'
+      like = Like.new
+      like.title = params[:title]
+      like.price = params[:price]
+      like.url = params[:link]
+      like.image = params[:image]
+      like.shopping_mall = params[:mallName]
+      like.user_id = current_user.id
+      like.save
     end
-=end
   end
 end
