@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "snapshop-176214",
+  "private_key_id": "cdcdcdbc27569b54a351dd49d436cafe304273ab",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDEoC12Jj9uErHa\nNXioMdi7uiPcM0d7yRhzt1bDuaS3/5LOSyFJfi+Fzwz/BlvLd1SOyPqIM3qh9/Aa\nQB/kjSsIX6n+Nh9RFjR+iM2OmrZ5jHXv1VWzA1S0FujopdZkrJdbQYbGZP8LOiw1\nU8o/jbpuCEGwPHhaqu2gV5b0z1oJ9Qkp77pHnUfBYmsdTwsakAhL1dCQCkxY77Ki\ny667zU6yKBdQBf0IUmcDwQqHGvdcbuqlqlIvTLpe9LCIrX/SIL/LSAfSFxVPfVc7\ncIpC9kdGcfshDPJ/umYGjiOCq/uROClwLDPBYQXJhvpX4kRgPYRAZVaMT3+8fNoq\nP86GX3OnAgMBAAECggEAWbhfVjC4s9Dq/89zaYgpRev3bgSmIylNM4welrvwmhcQ\nFXr5yu+93phubTYpD8w5NNgnXZvj4uFgWZIWG3OBBdalGn72xkjUFkL1TRNynT8H\nF7NoYgFslqp3h6UYkaKhg/3/8ipmqGhYgNLlkB9rSMcStki5gGHLgWVGWBn/k1fD\n8eedmgynk4rVUGxH84T24haGNHBUkM79GORTw0/oGFtywQyEgs7of3sDKkT3GtLK\nI5/4B3+++fz9K70/VlAWZ8tdMBvQVjl5c9bIOCyw+DaXOcMbJqxAWD/fmzC6639b\nyXfuVZFzwOR7Tl1opcwFQUMTILa9PzZtHA/t9SlfXQKBgQDqDpMOZoA2FLUaTQVb\n8V16xUFpft7MotYX8GvHapZ4I4a/ud9AEU+smHvxnozlmpJnZgYJ4ZgrXlGIeFFe\nRRkOWMkGGTXSWjy68c+Zx7VE6gVLxnq95IlB2A4iOUCE5hE0iunFhJj9F1IebNrd\nwNLaAWbEt4JmdnAHZrHrEo3ZPQKBgQDXDz507owU5VlOv5KNkQ4h9iV0dd4mUPTM\nge9pcgwAcjRW2bAO1v2QRIU0zhFAugrM0sI8DtI4oxQ5LLAD/IT752j1hyJlLbpp\ny2r/prQ2STxIsTbX6OoSOucGOuBygHvcwq1Zh4V6GXmeyLL57V4u6Uu9b7gLV3lD\nAY7oMs+mswKBgBJ2x98Q8vhRNeA3Rz7zkX5H5VsfKRBXoDAPRVFb9TbRBqZFUXlK\nZFCnTs/GxDKwuO/zOnK5GzoAnMn5Q+H97XYWRvV2M6q+d5//x3LIMGKZW4WYyMIG\nL1XEZ4kHnzFcvOq6MqrkRPViS5Ye3D02IuwTxDmsiFrw6PGMhmiW9B25AoGBAMIt\n63DdKvJ7GyY1Z3gXbzFO9QawnkLuefpln+wPo7KLa6K3r3XWvOAUXkoNfhp5YOML\nsYFUyI+G/+2X4d3XlaN1kJmQyIeewGBh4VywAqu5eIsSJ7jPfvmy4YIIizwXsr7j\nsG3UJbrXYa7y/FcZ8h5dW5vSUdU7yCuuLoCN0FxtAoGBAKCMCAmG3nRD8ud3EDoG\nK6T/C0ETQdFK9MOpVHw4ULTjNUL5TQo79PyCzqTyD4MX4cxpoGFygeS+WaVU4Bn9\nJjh2fqZtRw5BTC/eMBOnYdDbDSrPkIMzMlbaXnhiQf0leNAHki9c6QIumpCkHN1a\nNS0mybu5FYOoAZE9oq4nA2Ot\n-----END PRIVATE KEY-----\n",
+  "client_email": "development@snapshop-176214.iam.gserviceaccount.com",
+  "client_id": "101124959339582538083",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/development%40snapshop-176214.iam.gserviceaccount.com"
+}
