@@ -1,17 +1,1 @@
-<nav id="main-nav">
-  <a href="/mypage/index"><i id="mypage" class="fa fa-user hover-fade" aria-hidden="true"></i></a>
-</nav>
-<div class="d-flex justify-content-center align-items-center" style="height:100vh">
-  <i id="search" class="fa fa-camera hover-fade clickable" aria-hidden="true"></i>
-  <form action="/main/search" method="post" enctype="multipart/form-data">
-    <input id="file" type="file" name="image" accept="image/*" style="display:none" onchange="this.form.submit()">
-  </form>
-</div>
-<script>
-$(function(){
-    $("#search").on('click', function(e){
-      e.preventDefault();
-      $("#file").trigger('click');
-    });
-});
-</script>
+<%=render partial: 'main'%>

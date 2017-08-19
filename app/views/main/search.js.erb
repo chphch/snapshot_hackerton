@@ -1,0 +1,2 @@
+$('body').addClass('loaded');
+$('#content-container').html("<%=j(render partial: 'search', locals: {results: @results, key: @keys})%>");

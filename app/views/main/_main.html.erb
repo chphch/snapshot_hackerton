@@ -1,0 +1,14 @@
+<div id="search-wrap" class="d-flex justify-content-center align-items-center">
+  <i id="search" class="fa fa-camera hover-fade clickable" aria-hidden="true"></i>
+  <%= form_tag '/main/search', multipart: true, remote: true do %>
+    <%= file_field_tag :image, accept: 'image/*', onchange: "$('#submit').trigger('click')" %>
+    <%= submit_tag nil, id: 'submit', onclick: "$('body').removeClass('loaded')" %>
+  <% end %>
+</div>
+<script>
+$(function(){
+    $("#search").on('click', function(e){
+      $("#image").trigger('click');
+    });
+});
+</script>
