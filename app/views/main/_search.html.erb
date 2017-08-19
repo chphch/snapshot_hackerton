@@ -5,23 +5,23 @@
         검색 결과
       </h1>
       <h2 class="subtitle">
-        <% if @keys %>
-        <%= @keys %>로 검색한 결과입니다.
-      <% else %>
-        제품코드를 읽는데 실패했습니다.
-      <% end %>
+        <% if key %>
+          <%= key %>로 검색한 결과입니다.
+        <% else %>
+          제품코드를 읽는데 실패했습니다.
+        <% end %>
       </h2>
     </div>
   </div>
 </section>
 
 <div class="container">
-  <% if @results.count == 0 %>
+  <% if results.count == 0 %>
     <div class="notification is-danger" style="margin:50px">
       검색 결과가 없습니다.
     </div>
   <% end %>
-  <% @results.each do |result| %>
+  <% results.each do |result| %>
     <%= render partial: 'card', locals: {result: result} %>
   <% end %>
 </div>
