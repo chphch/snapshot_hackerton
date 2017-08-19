@@ -55,6 +55,7 @@ header {
 }
 
 #search-wrap {
+  z-index: -1;
   position: fixed;
   top: 0;
   width: 100%;
@@ -90,10 +91,12 @@ header {
   border:none;
 }
 
+.likeButton:hover {
+  color: red;
+}
+
 .likeButton.on {
-    i {
-      color: red;
-    }
+  color: red;
 }
 
 .likeButton:focus {
