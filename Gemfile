@@ -10,6 +10,8 @@ end
 gem 'devise'
 gem 'google-cloud-vision'
 gem 'googleauth'
+gem 'remotipart'
+
 ######################################
 
 

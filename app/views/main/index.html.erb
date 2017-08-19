@@ -1,17 +1,17 @@
 <nav id="main-nav">
-  <a href="/mypage/index"><i id="mypage" class="fa fa-user hover-fade" aria-hidden="true"></i></a>
+  <%= link_to "/mypage/index", remote: true do %><i id="mypage" class="fa fa-user hover-fade" aria-hidden="true"></i><% end %>
 </nav>
 <div class="d-flex justify-content-center align-items-center" style="height:100vh">
   <i id="search" class="fa fa-camera hover-fade clickable" aria-hidden="true"></i>
-  <form action="/main/search" method="post" enctype="multipart/form-data">
-    <input id="file" type="file" name="image" accept="image/*" style="display:none" onchange="this.form.submit()">
-  </form>
+  <%= form_tag '/main/search', multipart: true, remote: true do %>
+    <%= file_field_tag :image, accept: 'image/*', onchange: "$('#submit').trigger('click')" %>
+    <%= submit_tag nil, id: 'submit', onclick: "$('body').removeClass('loaded')" %>
+  <% end %>
 </div>
 <script>
 $(function(){
     $("#search").on('click', function(e){
-      e.preventDefault();
-      $("#file").trigger('click');
+      $("#image").trigger('click');
     });
 });
 </script>
