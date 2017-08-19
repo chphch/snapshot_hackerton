@@ -19,12 +19,12 @@
   </p>
 </div>
 <div class="container">
-  <% if @likes.count == 0 %>
+  <% if likes.count == 0 %>
     <div class="notification" style="margin:50px">
       찜한 상품이 없습니다.
     </div>
   <% end %>
-  <% @likes.each do |like| %>
+  <% likes.each do |like| %>
     <%=render partial: "main/card", locals: {item: like}%>
   <% end %>
 </div>
