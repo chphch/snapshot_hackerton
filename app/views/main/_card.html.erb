@@ -34,7 +34,7 @@ end
     </div>
   </div>
   <div class="media-right">
-    <%= form_tag '/mypage/toggle_like', remote: true do %>
+    <%= form_tag '/mypage/toggle_like', remote: true, method: 'get' do %>
       <input type="hidden" name="title" value=<%=result["title"]%>>
       <input type="hidden" name="price" value=<%=result["price"]%>>
       <input type="hidden" name="link" value=<%=result["link"]%>>

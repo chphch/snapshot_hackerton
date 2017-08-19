@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'main/main'
   post 'main/search'
 
-  post 'mypage/toggle_like'
+  get 'mypage/index'
+  get 'mypage/toggle_like'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
