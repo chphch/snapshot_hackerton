@@ -1,17 +1,1 @@
-<nav id="main-nav">
-  <%= link_to "/mypage/index", remote: true do %><i id="mypage" class="fa fa-user hover-fade" aria-hidden="true"></i><% end %>
-</nav>
-<div class="d-flex justify-content-center align-items-center" style="height:100vh">
-  <i id="search" class="fa fa-camera hover-fade clickable" aria-hidden="true"></i>
-  <%= form_tag '/main/search', multipart: true, remote: true do %>
-    <%= file_field_tag :image, accept: 'image/*', onchange: "$('#submit').trigger('click')" %>
-    <%= submit_tag nil, id: 'submit', onclick: "$('body').removeClass('loaded')" %>
-  <% end %>
-</div>
-<script>
-$(function(){
-    $("#search").on('click', function(e){
-      $("#image").trigger('click');
-    });
-});
-</script>
+<%=render partial: 'main'%>

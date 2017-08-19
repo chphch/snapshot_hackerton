@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
+
   root 'main#index'
-
   get 'main/index'
+  get 'main/main'
   post 'main/search'
-  get 'main/search'
-  get 'card/index'
-  get 'mypage/index'
 
+  get 'mypage/index'
   get 'mypage/toggle_like'
 
-  # 임시
-  post 'main/put_image'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'

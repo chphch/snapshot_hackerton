@@ -21,6 +21,20 @@
   </head>
 
   <body>
+    <header>
+      <div class="wrap">
+        <nav class="navbar is-transparent">
+          <div class="navbar-brand">
+            <%= link_to "/main/main", class:'navbar-item', remote: true do %>
+              Snapshop
+            <% end %>
+          </div>
+          <div class="navbar-end">
+            <%= link_to "/mypage/index", class: 'navbar-item', remote: true do %><i id="mypage" class="fa fa-user" aria-hidden="true"></i><% end %>
+          </div>
+        </nav>
+      </div>
+    </header>
     <div id="content-container">
       <%= yield %>
     </div>
@@ -30,6 +44,24 @@
       <div id="loader"></div>
     </div>
     <script>
+$(function() {
+  var nav = $('nav');
+  var navHeight = nav.height();
+  var isFixed = false;
+  var $w = $(window);
+  $w.scroll(function() {
+    var scrollTop = $w.scrollTop();
+    var opacity = 1.0;
+    if(scrollTop == 0) {
+      opacity = 1.0;
+    } else if(scrollTop >= navHeight) {
+      opacity = 0.0;
+    } else {
+      opacity = 1 - ( scrollTop / navHeight );
+    }
+    nav.css('opacity', opacity);
+  });
+});
 $(document).ready(function() {
   $('body').addClass('loaded');
 });
